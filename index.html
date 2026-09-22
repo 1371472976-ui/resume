@@ -187,6 +187,46 @@ a:hover{color:var(--gold-light);}
 .portfolio-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;}
 .portfolio-desc{font-size:13px;color:var(--text-secondary);line-height:1.6;}
 
+/* ===== 数据看板作品（复原版式） ===== */
+.dash-item{grid-column:1/-1;}
+.dash-badge{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;
+  background:rgba(200,155,60,.12);color:var(--gold);vertical-align:2px;letter-spacing:1px;}
+.dash-mock{padding:6px 24px 24px;}
+.dash-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+.dash-kpi{border-radius:10px;padding:12px 14px;border:1px solid var(--border-light);background:var(--bg-card);}
+.dash-kpi .dk-label{font-size:11px;color:var(--text-muted);margin-bottom:4px;}
+.dash-kpi .dk-value{font-family:"Songti SC",Georgia,serif;font-size:21px;font-weight:900;color:var(--navy);line-height:1.25;}
+.dash-kpi .dk-sub{font-size:11px;color:var(--text-muted);margin-top:2px;}
+.dash-kpi.red{background:#fff5f2;border-color:#f5d5cb;}
+.dash-kpi.red .dk-value{color:#d84a2b;}
+.dash-kpi.orange{background:#fff7ec;border-color:#f3ddba;}
+.dash-kpi.orange .dk-value{color:#d97b1f;}
+.dash-two-col{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;}
+.dash-panel{border:1px solid var(--border-light);border-radius:10px;padding:14px 16px;background:#fffdfb;}
+.dash-panel-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.dash-table{width:100%;border-collapse:collapse;font-size:12px;}
+.dash-table th{background:#faf3ec;color:var(--text-secondary);font-weight:600;padding:6px 8px;text-align:left;border-bottom:1px solid var(--border-light);}
+.dash-table td{padding:6px 8px;border-bottom:1px dashed var(--border-light);color:var(--text-secondary);}
+.dash-table tr.total td{font-weight:700;color:var(--navy);border-top:1px solid var(--border);border-bottom:none;}
+.dash-pie-row{display:flex;align-items:center;gap:20px;}
+.dash-pie{width:118px;height:118px;border-radius:50%;flex-shrink:0;box-shadow:inset 0 0 0 0 #fff;}
+.dash-legend{display:flex;flex-direction:column;gap:8px;font-size:12px;color:var(--text-secondary);}
+.dash-legend .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;}
+.dash-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+.dash-chip{font-size:11px;padding:3px 10px;border-radius:20px;background:#faf3ec;color:var(--text-secondary);border:1px solid var(--border-light);}
+.dash-bars{display:flex;align-items:flex-end;gap:24px;height:160px;padding:6px 12px 0;}
+.dash-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px;}
+.dash-bar{width:68%;max-width:48px;border-radius:6px 6px 0 0;}
+.dash-bar-label{font-size:11px;color:var(--text-muted);}
+.dash-bar-value{font-size:11px;font-weight:700;color:var(--navy);}
+
+/* ===== 双击编辑文本 ===== */
+[contenteditable="true"]{outline:2px dashed var(--gold);outline-offset:3px;border-radius:4px;cursor:text;min-width:20px;}
+.edit-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;
+  padding:10px 22px;border-radius:24px;font-size:13px;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.25);
+  opacity:0;pointer-events:none;transition:opacity .3s;max-width:86vw;text-align:center;}
+.edit-toast.show{opacity:1;}
+
 /* ===== 联系方式 ===== */
 .contact-section{background:var(--navy);color:#fff;padding:64px 0;}
 .contact-section .section-title{color:#fff;}
@@ -273,6 +313,9 @@ a:hover{color:var(--gold-light);}
     break-inside:avoid;page-break-inside:avoid;
   }
   .chart-container,.portfolio-chart{height:240px;}
+  .dash-item{break-inside:avoid;page-break-inside:avoid;}
+  [contenteditable]{outline:none !important;}
+  .edit-toast{display:none !important;}
   .contact-section{padding:30px 0 !important;}
 }
 </style>
@@ -731,6 +774,81 @@ a:hover{color:var(--gold-light);}
             <div class="portfolio-desc">按区域、快递、重量段拆解单均成本，识别降本机会点，支撑谈判与路由优化。</div>
           </div>
         </div>
+
+        <!-- 看板作品 1：临期库存预警看板（已脱敏） -->
+        <div class="portfolio-item dash-item reveal">
+          <div class="portfolio-info">
+            <div class="portfolio-title">临期库存预警看板<span class="dash-badge">已脱敏</span></div>
+            <div class="portfolio-desc">临期库存按仓库 / SKU 双维度监控：预警总量、金额占比、重点促销产品与金额分布同屏呈现，剩余效期不足12个月自动预警，支撑促销去化与效期管控决策。</div>
+          </div>
+          <div class="dash-mock">
+            <div class="dash-kpis">
+              <div class="dash-kpi red"><div class="dk-label">临期预警库存总数</div><div class="dk-value">90,268</div><div class="dk-sub">件</div></div>
+              <div class="dash-kpi red"><div class="dk-label">临期金额占比</div><div class="dk-value">1%</div><div class="dk-sub">当前 90,268 / 目标 1,250 万</div></div>
+              <div class="dash-kpi"><div class="dk-label">重点促销 SKU</div><div class="dk-value">3</div><div class="dk-sub">覆盖 2 个仓库</div></div>
+              <div class="dash-kpi"><div class="dk-label">数据更新时间</div><div class="dk-value">2026/07/26</div><div class="dk-sub">每日自动刷新</div></div>
+            </div>
+            <div class="dash-two-col">
+              <div class="dash-panel">
+                <div class="dash-panel-title">重点促销产品</div>
+                <table class="dash-table">
+                  <thead><tr><th>仓库</th><th>产品名称</th><th>库存数量</th><th>成本总额(元)</th></tr></thead>
+                  <tbody>
+                    <tr><td>A仓</td><td>促销SKU-A1（巧克力制品）</td><td>144</td><td>12,039</td></tr>
+                    <tr><td>A仓</td><td>促销SKU-A2（固体饮料）</td><td>120</td><td>6,540</td></tr>
+                    <tr><td>B仓</td><td>促销SKU-B1（风味饮品）</td><td>10,150</td><td>42,517</td></tr>
+                    <tr class="total"><td>总计</td><td></td><td>10,414</td><td>61,097</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="dash-panel">
+                <div class="dash-panel-title">临期库存金额分布</div>
+                <div class="dash-pie-row">
+                  <div class="dash-pie" style="background:conic-gradient(#e05a3a 0 81%,#e8a33d 81% 90%,#7a9e6c 90% 97.8%,#5a7a9a 97.8% 100%);"></div>
+                  <div class="dash-legend">
+                    <span><span class="dot" style="background:#e05a3a;"></span>A仓 81.0%</span>
+                    <span><span class="dot" style="background:#e8a33d;"></span>B仓 9.0%</span>
+                    <span><span class="dot" style="background:#7a9e6c;"></span>C仓 7.8%</span>
+                    <span><span class="dot" style="background:#5a7a9a;"></span>进口仓 2.2%</span>
+                  </div>
+                </div>
+                <div class="dash-chips">
+                  <span class="dash-chip">剩余效期不足 12 个月</span>
+                  <span class="dash-chip">统计维度：平台仓 / 加工仓 / 进口仓 / 自营仓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 看板作品 2：库存与采购目标达成看板（已脱敏） -->
+        <div class="portfolio-item dash-item reveal">
+          <div class="portfolio-info">
+            <div class="portfolio-title">库存与采购目标达成看板<span class="dash-badge">已脱敏</span></div>
+            <div class="portfolio-desc">库存削减与月度采购双目标进度跟踪：目标达成率、库存金额对比、周转完成度与剩余缺口同屏呈现，辅助月度经营复盘与采购节奏调整。</div>
+          </div>
+          <div class="dash-mock">
+            <div class="dash-kpis">
+              <div class="dash-kpi orange"><div class="dk-label">目标库存金额进度</div><div class="dk-value">100%</div><div class="dk-sub">当前 ¥12,505,510 / 目标 ¥12,500,000</div></div>
+              <div class="dash-kpi"><div class="dk-label">当前库存金额 + 在途</div><div class="dk-value">12,400,808</div><div class="dk-sub">元</div></div>
+              <div class="dash-kpi"><div class="dk-label">库存削减目标</div><div class="dk-value">476,987</div><div class="dk-sub">元</div></div>
+              <div class="dash-kpi orange"><div class="dk-label">库存周转完成度</div><div class="dk-value">48%</div><div class="dk-sub">当前 1,987,918 / 目标 4,166,011</div></div>
+              <div class="dash-kpi orange"><div class="dk-label">月采购进度（转销）</div><div class="dk-value">58%</div><div class="dk-sub">当前 ¥340,528,240 / 目标 ¥605,000,000</div></div>
+              <div class="dash-kpi orange"><div class="dk-label">月采购进度（成本预估）</div><div class="dk-value">54%</div><div class="dk-sub">当前 1,996,988 / 目标 3,689,024</div></div>
+              <div class="dash-kpi"><div class="dk-label">剩余待采购</div><div class="dk-value">1,692,036</div><div class="dk-sub">元（成本预估）</div></div>
+              <div class="dash-kpi"><div class="dk-label">剩余出库成本</div><div class="dk-value">2,178,093</div><div class="dk-sub">元</div></div>
+            </div>
+            <div class="dash-panel">
+              <div class="dash-panel-title">库存金额对比（期初 → 期末）</div>
+              <div class="dash-bars">
+                <div class="dash-bar-col"><span class="dash-bar-value">1,298万</span><div class="dash-bar" style="height:92%;background:linear-gradient(180deg,#e8952f,#f2b45c);"></div><span class="dash-bar-label">期初</span></div>
+                <div class="dash-bar-col"><span class="dash-bar-value">1,314万</span><div class="dash-bar" style="height:93%;background:linear-gradient(180deg,#e8952f,#f2b45c);"></div><span class="dash-bar-label">本月结转</span></div>
+                <div class="dash-bar-col"><span class="dash-bar-value">911万</span><div class="dash-bar" style="height:64%;background:linear-gradient(180deg,#d97b1f,#e8a94f);"></div><span class="dash-bar-label">本月出库</span></div>
+                <div class="dash-bar-col"><span class="dash-bar-value">1,240万</span><div class="dash-bar" style="height:88%;background:linear-gradient(180deg,#c46a15,#e29a3e);"></div><span class="dash-bar-label">期末</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -862,6 +980,65 @@ document.getElementById('copyBtn').addEventListener('click', function(){
     setTimeout(() => (this.textContent = '复制访问链接'), 1800);
   });
 });
+
+/* ===== 双击修改文本（仅保存在本机浏览器） ===== */
+(function(){
+  const STORE_KEY = 'resume_text_edits_v1';
+  const SKIP = '.sidebar,button,a,input,select,.edit-toast';
+  let edits = {};
+  try { edits = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e){ edits = {}; }
+
+  /* 收集可编辑的纯文本叶子元素并编号 */
+  const list = [];
+  document.querySelectorAll('.main *').forEach(el => {
+    if (el.closest(SKIP)) return;
+    if (el.children.length !== 0) return;
+    for (const n of el.childNodes){
+      if (n.nodeType === 3 && n.textContent.trim()){ list.push(el); break; }
+    }
+  });
+  list.forEach((el, i) => {
+    el.dataset.eid = 'e' + i;
+    if (edits['e' + i] != null) el.textContent = edits['e' + i];
+  });
+
+  let toastTimer = null;
+  function toast(msg){
+    let t = document.querySelector('.edit-toast');
+    if (!t){ t = document.createElement('div'); t.className = 'edit-toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+  }
+
+  /* 双击进入编辑 */
+  document.addEventListener('dblclick', e => {
+    const el = e.target.closest('.main [data-eid]');
+    if (!el) return;
+    e.preventDefault();
+    el.contentEditable = 'true';
+    el.focus();
+    toast('编辑模式：改完点击其他区域自动保存（仅本机浏览器生效，导出PDF同样适用）');
+  });
+
+  /* 失焦保存 */
+  document.addEventListener('focusout', e => {
+    const el = e.target;
+    if (!el.dataset || el.contentEditable !== 'true') return;
+    el.contentEditable = 'false';
+    edits[el.dataset.eid] = el.textContent.trim();
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(edits)); } catch(err){}
+  });
+
+  /* 回车结束编辑，打印前退出编辑态 */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.target.contentEditable === 'true'){ e.preventDefault(); e.target.blur(); }
+  });
+  window.addEventListener('beforeprint', () => {
+    document.querySelectorAll('[contenteditable="true"]').forEach(el => { el.contentEditable = 'false'; });
+  });
+})();
 
 /* ===== 图表 ===== */
 const chartTheme = {

@@ -220,12 +220,6 @@ a:hover{color:var(--gold-light);}
 .dash-bar-label{font-size:11px;color:var(--text-muted);}
 .dash-bar-value{font-size:11px;font-weight:700;color:var(--navy);}
 
-/* ===== 双击编辑文本 ===== */
-[contenteditable="true"]{outline:2px dashed var(--gold);outline-offset:3px;border-radius:4px;cursor:text;min-width:20px;}
-.edit-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;
-  padding:10px 22px;border-radius:24px;font-size:13px;z-index:300;box-shadow:0 8px 24px rgba(0,0,0,.25);
-  opacity:0;pointer-events:none;transition:opacity .3s;max-width:86vw;text-align:center;}
-.edit-toast.show{opacity:1;}
 
 /* ===== 联系方式 ===== */
 .contact-section{background:var(--navy);color:#fff;padding:64px 0;}
@@ -314,8 +308,6 @@ a:hover{color:var(--gold-light);}
   }
   .chart-container,.portfolio-chart{height:240px;}
   .dash-item{break-inside:avoid;page-break-inside:avoid;}
-  [contenteditable]{outline:none !important;}
-  .edit-toast{display:none !important;}
   .contact-section{padding:30px 0 !important;}
 }
 </style>
@@ -980,65 +972,6 @@ document.getElementById('copyBtn').addEventListener('click', function(){
     setTimeout(() => (this.textContent = '复制访问链接'), 1800);
   });
 });
-
-/* ===== 双击修改文本（仅保存在本机浏览器） ===== */
-(function(){
-  const STORE_KEY = 'resume_text_edits_v1';
-  const SKIP = '.sidebar,button,a,input,select,.edit-toast';
-  let edits = {};
-  try { edits = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e){ edits = {}; }
-
-  /* 收集可编辑的纯文本叶子元素并编号 */
-  const list = [];
-  document.querySelectorAll('.main *').forEach(el => {
-    if (el.closest(SKIP)) return;
-    if (el.children.length !== 0) return;
-    for (const n of el.childNodes){
-      if (n.nodeType === 3 && n.textContent.trim()){ list.push(el); break; }
-    }
-  });
-  list.forEach((el, i) => {
-    el.dataset.eid = 'e' + i;
-    if (edits['e' + i] != null) el.textContent = edits['e' + i];
-  });
-
-  let toastTimer = null;
-  function toast(msg){
-    let t = document.querySelector('.edit-toast');
-    if (!t){ t = document.createElement('div'); t.className = 'edit-toast'; document.body.appendChild(t); }
-    t.textContent = msg;
-    t.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
-  }
-
-  /* 双击进入编辑 */
-  document.addEventListener('dblclick', e => {
-    const el = e.target.closest('.main [data-eid]');
-    if (!el) return;
-    e.preventDefault();
-    el.contentEditable = 'true';
-    el.focus();
-    toast('编辑模式：改完点击其他区域自动保存（仅本机浏览器生效，导出PDF同样适用）');
-  });
-
-  /* 失焦保存 */
-  document.addEventListener('focusout', e => {
-    const el = e.target;
-    if (!el.dataset || el.contentEditable !== 'true') return;
-    el.contentEditable = 'false';
-    edits[el.dataset.eid] = el.textContent.trim();
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(edits)); } catch(err){}
-  });
-
-  /* 回车结束编辑，打印前退出编辑态 */
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && e.target.contentEditable === 'true'){ e.preventDefault(); e.target.blur(); }
-  });
-  window.addEventListener('beforeprint', () => {
-    document.querySelectorAll('[contenteditable="true"]').forEach(el => { el.contentEditable = 'false'; });
-  });
-})();
 
 /* ===== 图表 ===== */
 const chartTheme = {

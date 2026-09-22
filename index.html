@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈泽明 · 个人简历 | 供应链管理</title>
+<meta name="description" content="陈泽明的个人简历网站 — 供应链管理（主管/经理方向），十年供应链与仓储管理经验。">
+<link rel="icon" href="assets/avatar.png">
+<style>
+:root{
+  --primary:#0e7c86;
+  --primary-light:#14a3ae;
+  --primary-bg:#e6f5f6;
+  --ink:#22333b;
+  --ink-soft:#5a6b73;
+  --bg:#f7fafb;
+  --card:#ffffff;
+  --line:#e3edee;
+  --gold:#e8a33d;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+
+/* ===== Hero ===== */
+.hero{
+  background:linear-gradient(135deg,#0e7c86 0%,#12939e 55%,#1fb3b0 100%);
+  color:#fff;padding:64px 0 88px;position:relative;overflow:hidden;
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.08);
+}
+.hero::before{width:340px;height:340px;top:-120px;right:-80px;}
+.hero::after{width:220px;height:220px;bottom:-90px;left:-60px;}
+.hero .wrap{display:flex;align-items:center;gap:44px;position:relative;z-index:1;flex-wrap:wrap;}
+.avatar-box{position:relative;flex-shrink:0;}
+.avatar{
+  width:170px;height:170px;border-radius:50%;object-fit:cover;
+  border:5px solid rgba(255,255,255,.85);
+  box-shadow:0 10px 30px rgba(0,0,0,.22);display:block;cursor:pointer;
+  transition:transform .25s;
+}
+.avatar:hover{transform:scale(1.04);}
+.avatar-tip{
+  position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  background:rgba(255,255,255,.95);color:var(--primary);font-size:12px;
+  padding:3px 12px;border-radius:20px;white-space:nowrap;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);pointer-events:none;opacity:0;transition:opacity .2s;
+}
+.avatar-box:hover .avatar-tip{opacity:1;}
+#avatarInput{display:none;}
+.hero-info h1{font-size:38px;letter-spacing:2px;font-weight:700;}
+.hero-info .role{font-size:18px;opacity:.92;margin:6px 0 18px;}
+.tags{display:flex;flex-wrap:wrap;gap:10px;}
+.tag{
+  background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);
+  padding:5px 14px;border-radius:20px;font-size:13.5px;backdrop-filter:blur(2px);
+}
+.hero-actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 22px;border-radius:24px;
+  font-size:14.5px;cursor:pointer;border:none;text-decoration:none;transition:.2s;
+}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.5);}
+.btn-ghost:hover{background:rgba(255,255,255,.28);}
+.btn-solid{background:#fff;color:var(--primary);font-weight:600;}
+.btn-solid:hover{background:var(--primary-bg);}
+
+/* ===== Contact bar ===== */
+.contact-bar{background:var(--card);box-shadow:0 8px 24px rgba(20,60,66,.07);border-radius:var(--radius);
+  margin-top:-48px;position:relative;z-index:2;padding:20px 26px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;}
+.contact-item{display:flex;align-items:center;gap:12px;font-size:14.5px;}
+.contact-item .ico{
+  width:38px;height:38px;border-radius:10px;background:var(--primary-bg);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.contact-item .lab{color:var(--ink-soft);font-size:12px;display:block;line-height:1.4;}
+.contact-item .val{font-weight:600;}
+
+/* ===== Sections ===== */
+section{padding:44px 0 8px;}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+.sec-head .bar{width:6px;height:26px;border-radius:3px;background:linear-gradient(var(--primary),var(--primary-light));}
+.sec-head h2{font-size:24px;letter-spacing:1px;}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 20px rgba(20,60,66,.06);
+  padding:26px 28px;margin-bottom:18px;border:1px solid var(--line);}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;
+  transition:transform .2s,box-shadow .2s;}
+.skill:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(20,60,66,.12);}
+.skill h3{font-size:16px;color:var(--primary);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.skill p{font-size:13.8px;color:var(--ink-soft);}
+
+/* timeline */
+.timeline{position:relative;padding-left:30px;}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(var(--primary-light),var(--line));}
+.job{position:relative;margin-bottom:26px;}
+.job::before{content:"";position:absolute;left:-28px;top:9px;width:14px;height:14px;border-radius:50%;
+  background:#fff;border:3.5px solid var(--primary);}
+.job-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;align-items:baseline;}
+.job-head h3{font-size:17.5px;}
+.job .company{color:var(--primary);font-weight:600;font-size:15px;}
+.job .date{font-size:13px;color:#fff;background:var(--primary-light);padding:2px 12px;border-radius:14px;}
+.job ul{margin:10px 0 0 1.2em;}
+.job li{font-size:14.2px;color:var(--ink-soft);margin-bottom:6px;}
+.job li::marker{color:var(--primary-light);}
+.highlight{color:var(--primary);font-weight:600;}
+
+/* summary & education */
+.summary-text{font-size:15px;color:var(--ink-soft);text-align:justify;}
+.edu{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.edu h3{font-size:16.5px;}
+.edu .date{font-size:13px;color:var(--ink-soft);}
+.edu .major{background:var(--primary-bg);color:var(--primary);padding:3px 14px;border-radius:14px;font-size:13px;}
+
+/* ===== Footer / QR ===== */
+footer{margin-top:40px;background:#0b3a40;color:#cfe7e9;padding:38px 0;text-align:center;}
+footer h3{color:#fff;font-size:18px;margin-bottom:6px;}
+#qrWrap{margin:18px auto 8px;background:#fff;padding:12px;border-radius:12px;display:inline-block;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);}
+#qrWrap canvas,#qrWrap img{display:block;}
+footer .url{font-size:12.5px;opacity:.75;word-break:break-all;}
+footer .tip{font-size:13px;opacity:.85;margin-top:6px;}
+.copy-btn{margin-top:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);
+  color:#fff;padding:7px 20px;border-radius:20px;font-size:13px;cursor:pointer;transition:.2s;}
+.copy-btn:hover{background:rgba(255,255,255,.25);}
+
+@media (max-width:640px){
+  .hero{padding:44px 0 80px;text-align:center;}
+  .hero .wrap{justify-content:center;}
+  .tags{justify-content:center;}
+  .hero-actions{justify-content:center;}
+  .hero-info h1{font-size:30px;}
+  .avatar{width:140px;height:140px;}
+}
+@media print{
+  footer,.hero-actions,#avatarInput{display:none;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="avatar-box">
+      <img id="avatarImg" class="avatar" src="assets/avatar.png" alt="个人头像" title="点击更换头像">
+      <span class="avatar-tip">📷 点击更换头像</span>
+      <input type="file" id="avatarInput" accept="image/*">
+    </div>
+    <div class="hero-info">
+      <h1>陈泽明</h1>
+      <p class="role">供应链主管 / 供应链经理 · 十年供应链与仓储管理经验</p>
+      <div class="tags">
+        <span class="tag">🎯 求职意向：供应链管理（主管/经理方向）</span>
+        <span class="tag">💰 期望薪资：15-19k</span>
+        <span class="tag">📍 期望城市：广东省内</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="tel:+8613531735582">📞 联系我</a>
+        <button class="btn btn-ghost" onclick="window.print()">🖨️ 打印/导出PDF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="contact-bar">
+    <div class="contact-item"><div class="ico">📱</div><div><span class="lab">电话</span><span class="val">+86 135-3173-5582</span></div></div>
+    <div class="contact-item"><div class="ico">✉️</div><div><span class="lab">邮箱</span><span class="val">1371472976@qq.com</span></div></div>
+    <div class="contact-item"><div class="ico">💼</div><div><span class="lab">工作经验</span><span class="val">10 年 供应链 / 仓储</span></div></div>
+    <div class="contact-item"><div class="ico">🎓</div><div><span class="lab">学历</span><span class="val">国家开放大学 · 电子商务</span></div></div>
+  </div>
+
+  <section id="skills">
+    <div class="sec-head"><div class="bar"></div><h2>专业技能</h2></div>
+    <div class="skill-grid">
+      <div class="skill"><h3>🔗 供应链全局统筹</h3><p>丰富的供应链/仓储管理经验，擅长统筹进口品牌/OEM 全链路供应链运营，主导端到端业务流程梳理与重构，将实践经验总结为可复制、可推广的管理模式。</p></div>
+      <div class="skill"><h3>📊 需求计划与库存管理</h3><p>擅长以数据驱动销量预测与库存策略，搭建 SKU 级动态补货模型，统筹安全库存与补货频次优化；建立库存健康度监测机制，具备呆滞库存分级盘活与盘点损耗管控（差异率 &lt;0.1%）实战经验。</p></div>
+      <div class="skill"><h3>🤝 供应商开发与管理</h3><p>熟悉第三方服务商/供应商的监管、评估与考核体系搭建，建立服务商评分系统并纳入年度议价资料，具备飞行检查、绩效复盘与商务议价的完整闭环经验。</p></div>
+      <div class="skill"><h3>💻 系统实施与数据分析</h3><p>精通 ERP、WMS 等系统操作，具备丰富的系统实施和优化经验；熟练使用 WPS、多维表格搭建进销存、效期管理、成本核算等多维可视化数据模型，善于用数据支撑经营决策。</p></div>
+      <div class="skill"><h3>🛃 关务与合规风控</h3><p>具备 1210 保税电商、0110 一般贸易、跨境转大贸多模式清关全流程实操经验，搭建全业务合规 SOP，有效规避政策与经营风险。</p></div>
+      <div class="skill"><h3>👥 团队建设与跨部门协作</h3><p>优秀的团队管理和沟通协调能力，擅长搭建多维 KPI 考核体系、打造高效协作团队，推动跨部门合作与供应链异常闭环处理。</p></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><div class="bar"></div><h2>工作经历</h2></div>
+    <div class="card"><div class="timeline">
+
+      <div class="job">
+        <div class="job-head">
+          <h3>供应链主管 · <span class="company">广州研秀科技股份有限公司</span></h3>
+          <span class="date">2025.10 - 至今</span>
+        </div>
+        <ul>
+          <li>统筹进口品牌/OEM 全链路供应链运营，主导端到端业务流程梳理与重构，落地线上库存管理系统（WMS/ERP），实现从采购、清关、仓储到配送全流程标准化、数字化升级；优化物流规划与采购策略，<span class="highlight">采购入库端干线清关成本降低 10%</span>。</li>
+          <li>统筹全国仓网布局并优化网点结构，搭建履约时效、库存准确率、订单差错率、服务响应度多维 KPI 考核体系，执行月度考核、年度复盘，将仓内综合附加成本严控在 <span class="highlight">0.5 元/单以内</span>。</li>
+          <li>结合年度销售目标、历史销量曲线、市场促销节奏及季节性因素开展销量预测，搭建 SKU 级动态补货模型，统筹安全库存设定与补货频次优化，有效降低缺货率与超储率。</li>
+          <li>建立库存健康度监测机制，动态跟踪库存水位、周转天数、动销率、效期分布；制定滞销品、临期品分级盘活策略，<span class="highlight">释放库存成本金额约 25%</span>。</li>
+          <li>搭建进销存、效期管理、物流时效、成本核算多维度可视化监测模型，定期输出经营数据看板与月度分析报告；主导跨部门数据交互标准建设，打通销售、仓储、财务数据壁垒，支撑管理层经营决策。</li>
+          <li>负责 1210 保税电商、0110 一般贸易、跨境转大贸多模式清关全流程，把控申报、查验、缴税、放行关键节点，搭建全业务合规 SOP。</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>供应链主管 · <span class="company">广州诺美嘉健康产品有限公司</span></h3>
+          <span class="date">2023.06 - 2025.09</span>
+        </div>
+        <ul>
+          <li>对京东、菜鸟、抖音等第三方仓库进行监管与飞行检查，输出管理检验报告，建立服务商评分系统并纳入年度议价资料，实现供应商/服务商全生命周期管理。</li>
+          <li>掌握关区新政，开发各类资源仓，设计更新物流供给线路，<span class="highlight">年度物流调拨成本降低 10%、仓储作业成本降低 15%</span>，提高基础政策补贴。</li>
+          <li>主导优化库存系统管理模式，以第三方 ERP 系统对接各平台渠道仓库/店铺进行库存线上即时管理，<span class="highlight">库存准确率达 99.99% 以上</span>。</li>
+          <li>与各服务仓敲定特殊商品管理模式，将易残损包装商品入仓残次率从 5% 降低至不足 0.1%；制定残次/过期产品处理方案，低成本处理堆滞多年的残次商品。</li>
+          <li>负责供应链业务日常运营管理，制定各项操作 SOP 并落地，规范各渠道、平台订单的合规、妥投及售后处理；打造以"高效准确，及时多变"为核心的供应链管理体系，为销售业务冲刺提供零缺货、高好评的有力保障。</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>仓储经理 · <span class="company">杭州朵多供应链管理有限公司</span></h3>
+          <span class="date">2020.09 - 2023.05</span>
+        </div>
+        <ul>
+          <li>建立完善的仓储成本控制体系，通过商品包装属性分析、数据分析、流程优化和资源整合，<span class="highlight">仓储成本降低 10%</span>。</li>
+          <li>主导实施 WMS 系统升级项目，结合实际业务需求开发多项系统功能模块，实现仓储管理数字化、智能化转型。</li>
+          <li>以"去经验化"及"仓储三大率"为核心概念总结提炼仓储管理办法（流程优化、布局规划、设备升级、人员培训、绩效考核），并在公司内部推广。</li>
+          <li>负责华东地区仓储中心日常运营管理，制定仓库管理考核制度与各项操作 SOP 并落地执行；推动落实"一岗双责"制度，<span class="highlight">连续三年获得公司"优秀团队"称号</span>。</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <h3>仓储/关务主管 · <span class="company">宁波丫丫趣购物流科技有限公司</span></h3>
+          <span class="date">2016.04 - 2020.09</span>
+        </div>
+        <ul>
+          <li>负责公司关务日常作业管理，对商品进口进行可行性确认，完成商品备案、报关、调拨及其他海关事务处理。</li>
+          <li>参与公司系统选型与实施并对各系统管理负责，确保海关系统、国际物流系统、仓储 ERP、WMS 等各系统数据正常，保证订单安全快速流转。</li>
+          <li>搭建"海关—保税仓—电商仓"异常响应 SOP，<span class="highlight">跨仓异常处理时长从 48h 压缩至 6h</span>；库存差异率 &lt; 0.1%。</li>
+          <li>设计"周度循环 + 月度全盘"双轨盘点方案，财务审计一次通过；结合"动态库存管理"理念，通过数据分析预测销售趋势，合理调整库存结构，提高库存周转率。</li>
+        </ul>
+      </div>
+
+    </div></div>
+  </section>
+
+  <section id="summary">
+    <div class="sec-head"><div class="bar"></div><h2>自我评价</h2></div>
+    <div class="card"><p class="summary-text">
+      具备多年供应链管理与计划双线经验，既能以数据驱动需求预测、SKU 级补货与库存健康度管理，保障供货履约与业务连续性；又能全局统筹采购、仓储、物流、关务全链路运营，主导端到端流程重构、KPI 体系搭建与团队建设，多环节实现 10% 以上降本。精通 ERP/WMS 系统实施与优化，熟悉一般贸易、跨境电商与国内电商运作及关务合规风控。具备较强的跨部门协作与业务推动能力，善于在动态业务环境中制定可落地的执行方案，实现质量、成本、交期与服务的最优平衡。
+    </p></div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><div class="bar"></div><h2>教育背景</h2></div>
+    <div class="card edu">
+      <div><h3>国家开放大学</h3><span class="date">2020 - 2023</span></div>
+      <span class="major">电子商务 · 大专</span>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <h3>扫码 / 复制链接，把我的简历分享给更多人</h3>
+  <div id="qrWrap"></div>
+  <p class="url" id="pageUrl"></p>
+  <p class="tip">手机扫描二维码即可访问本页面</p>
+  <button class="copy-btn" id="copyBtn">复制访问链接</button>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+/* ===== 头像上传（本地保存，仅本机浏览器生效） ===== */
+const avatarImg = document.getElementById('avatarImg');
+const avatarInput = document.getElementById('avatarInput');
+const saved = localStorage.getItem('resume_avatar');
+if (saved) avatarImg.src = saved;
+avatarImg.addEventListener('click', () => avatarInput.click());
+avatarInput.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const img = new Image();
+    img.onload = () => {
+      // 压缩为 512x512 圆形适配图，避免 localStorage 溢出
+      const c = document.createElement('canvas');
+      c.width = c.height = 512;
+      const ctx = c.getContext('2d');
+      const s = Math.min(img.width, img.height);
+      ctx.drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, 512, 512);
+      const data = c.toDataURL('image/jpeg', 0.85);
+      avatarImg.src = data;
+      try { localStorage.setItem('resume_avatar', data); } catch (err) { console.warn(err); }
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+/* ===== 二维码与链接 ===== */
+const pageUrl = window.location.href.split('#')[0];
+document.getElementById('pageUrl').textContent = pageUrl;
+if (typeof QRCode !== 'undefined') {
+  QRCode.toCanvas(pageUrl, { width: 150, margin: 1, color: { dark: '#0e7c86', light: '#ffffff' } },
+    (err, canvas) => { if (!err) document.getElementById('qrWrap').appendChild(canvas); });
+}
+document.getElementById('copyBtn').addEventListener('click', function () {
+  navigator.clipboard.writeText(pageUrl).then(() => {
+    this.textContent = '✅ 已复制';
+    setTimeout(() => (this.textContent = '复制访问链接'), 1800);
+  });
+});
+</script>
+</body>
+</html>

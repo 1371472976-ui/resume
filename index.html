@@ -332,8 +332,8 @@ a:hover{color:var(--gold-light);}
   <ul class="nav-list">
     <li class="nav-item active" data-target="hero" onclick="scrollToSection('hero')"><span class="nav-num">00</span>首页</li>
     <li class="nav-item" data-target="about" onclick="scrollToSection('about')"><span class="nav-num">01</span>关于我</li>
-    <li class="nav-item" data-target="kpi" onclick="scrollToSection('kpi')"><span class="nav-num">02</span>核心能力数据</li>
-    <li class="nav-item" data-target="experience" onclick="scrollToSection('experience')"><span class="nav-num">03</span>职业经历</li>
+    <li class="nav-item" data-target="experience" onclick="scrollToSection('experience')"><span class="nav-num">02</span>职业经历</li>
+    <li class="nav-item" data-target="kpi" onclick="scrollToSection('kpi')"><span class="nav-num">03</span>核心能力数据</li>
     <li class="nav-item" data-target="projects" onclick="scrollToSection('projects')"><span class="nav-num">04</span>项目经验</li>
     <li class="nav-item" data-target="skills" onclick="scrollToSection('skills')"><span class="nav-num">05</span>专业技能</li>
     <li class="nav-item" data-target="certs" onclick="scrollToSection('certs')"><span class="nav-num">06</span>教育背景与荣誉</li>
@@ -398,69 +398,10 @@ a:hover{color:var(--gold-light);}
     </div>
   </section>
 
-  <!-- ===== 核心能力数据 ===== -->
-  <section class="section" id="kpi">
-    <div class="content-wrap">
-      <div class="section-header reveal"><span class="section-num">02</span><h2 class="section-title">核心能力数据</h2><div class="section-line"></div></div>
-      <div class="kpi-grid">
-        <div class="kpi-card reveal">
-          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
-          <div class="kpi-value">99.99<span class="kpi-unit">%</span></div>
-          <div class="kpi-title">库存准确率</div>
-          <div class="kpi-desc">以第三方ERP对接各渠道仓库实现库存线上即时管理，库存准确率达99.99%以上</div>
-        </div>
-        <div class="kpi-card reveal">
-          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg></div>
-          <div class="kpi-value">&lt;0.1<span class="kpi-unit">%</span></div>
-          <div class="kpi-title">库存差异率</div>
-          <div class="kpi-desc">设计"周度循环+月度全盘"双轨盘点方案，财务审计一次通过，库存差异率控制在0.1%以内</div>
-        </div>
-        <div class="kpi-card reveal">
-          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-          <div class="kpi-value">6<span class="kpi-unit">小时</span></div>
-          <div class="kpi-title">跨仓异常处理时效</div>
-          <div class="kpi-desc">搭建"海关—保税仓—电商仓"异常响应SOP，将跨仓异常处理时长从48小时压缩至6小时</div>
-        </div>
-        <div class="kpi-card reveal">
-          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-          <div class="kpi-value">0.5<span class="kpi-unit">元/单</span></div>
-          <div class="kpi-title">仓内综合附加成本</div>
-          <div class="kpi-desc">统筹全国仓网布局并优化网点结构，将包材、操作、仓租等仓内综合附加成本严控在0.5元/单以内</div>
-        </div>
-        <div class="kpi-card reveal">
-          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
-          <div class="kpi-value">&lt;0.1<span class="kpi-unit">%</span></div>
-          <div class="kpi-title">入仓残次率</div>
-          <div class="kpi-desc">与各服务仓敲定特殊商品管理模式，易残损包装商品入仓残次率从5%降低至不足0.1%</div>
-        </div>
-        <div class="kpi-card reveal">
-          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
-          <div class="kpi-value">3<span class="kpi-unit">年</span></div>
-          <div class="kpi-title">连续优秀团队</div>
-          <div class="kpi-desc">推动落实"一岗双责"制度，带领华东地区仓储中心连续三年获得公司"优秀团队"称号</div>
-        </div>
-      </div>
-      <div class="chart-row">
-        <div class="chart-box reveal">
-          <div class="chart-title">多环节成本优化成果</div>
-          <div class="chart-subtitle">各业务环节年度降本比例（%）</div>
-          <div class="chart-container" id="chart-turnover"></div>
-          <div class="chart-fallback" id="fb-turnover">图表资源未能加载，请刷新页面查看</div>
-        </div>
-        <div class="chart-box reveal">
-          <div class="chart-title">库存准确率提升历程</div>
-          <div class="chart-subtitle">从系统优化前到优化后（%）</div>
-          <div class="chart-container" id="chart-cost"></div>
-          <div class="chart-fallback" id="fb-cost">图表资源未能加载，请刷新页面查看</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== 职业经历 ===== -->
   <section class="section" id="experience">
     <div class="content-wrap">
-      <div class="section-header reveal"><span class="section-num">03</span><h2 class="section-title">职业经历</h2><div class="section-line"></div></div>
+      <div class="section-header reveal"><span class="section-num">02</span><h2 class="section-title">职业经历</h2><div class="section-line"></div></div>
       <div class="timeline">
         <div class="timeline-item current reveal">
           <div class="timeline-dot"></div>
@@ -519,6 +460,65 @@ a:hover{color:var(--gold-light);}
               <li>设计"周度循环+月度全盘"双轨盘点方案，<strong>财务审计一次通过</strong>；通过数据分析预测销售趋势，合理调整库存结构</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 核心能力数据 ===== -->
+  <section class="section" id="kpi">
+    <div class="content-wrap">
+      <div class="section-header reveal"><span class="section-num">03</span><h2 class="section-title">核心能力数据</h2><div class="section-line"></div></div>
+      <div class="kpi-grid">
+        <div class="kpi-card reveal">
+          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
+          <div class="kpi-value">99.99<span class="kpi-unit">%</span></div>
+          <div class="kpi-title">库存准确率</div>
+          <div class="kpi-desc">以第三方ERP对接各渠道仓库实现库存线上即时管理，库存准确率达99.99%以上</div>
+        </div>
+        <div class="kpi-card reveal">
+          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg></div>
+          <div class="kpi-value">&lt;0.1<span class="kpi-unit">%</span></div>
+          <div class="kpi-title">库存差异率</div>
+          <div class="kpi-desc">设计"周度循环+月度全盘"双轨盘点方案，财务审计一次通过，库存差异率控制在0.1%以内</div>
+        </div>
+        <div class="kpi-card reveal">
+          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <div class="kpi-value">6<span class="kpi-unit">小时</span></div>
+          <div class="kpi-title">跨仓异常处理时效</div>
+          <div class="kpi-desc">搭建"海关—保税仓—电商仓"异常响应SOP，将跨仓异常处理时长从48小时压缩至6小时</div>
+        </div>
+        <div class="kpi-card reveal">
+          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          <div class="kpi-value">0.5<span class="kpi-unit">元/单</span></div>
+          <div class="kpi-title">仓内综合附加成本</div>
+          <div class="kpi-desc">统筹全国仓网布局并优化网点结构，将包材、操作、仓租等仓内综合附加成本严控在0.5元/单以内</div>
+        </div>
+        <div class="kpi-card reveal">
+          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+          <div class="kpi-value">&lt;0.1<span class="kpi-unit">%</span></div>
+          <div class="kpi-title">入仓残次率</div>
+          <div class="kpi-desc">与各服务仓敲定特殊商品管理模式，易残损包装商品入仓残次率从5%降低至不足0.1%</div>
+        </div>
+        <div class="kpi-card reveal">
+          <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div>
+          <div class="kpi-value">3<span class="kpi-unit">年</span></div>
+          <div class="kpi-title">连续优秀团队</div>
+          <div class="kpi-desc">推动落实"一岗双责"制度，带领华东地区仓储中心连续三年获得公司"优秀团队"称号</div>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="chart-box reveal">
+          <div class="chart-title">多环节成本优化成果</div>
+          <div class="chart-subtitle">各业务环节年度降本比例（%）</div>
+          <div class="chart-container" id="chart-turnover"></div>
+          <div class="chart-fallback" id="fb-turnover">图表资源未能加载，请刷新页面查看</div>
+        </div>
+        <div class="chart-box reveal">
+          <div class="chart-title">库存准确率提升历程</div>
+          <div class="chart-subtitle">从系统优化前到优化后（%）</div>
+          <div class="chart-container" id="chart-cost"></div>
+          <div class="chart-fallback" id="fb-cost">图表资源未能加载，请刷新页面查看</div>
         </div>
       </div>
     </div>

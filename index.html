@@ -272,14 +272,16 @@ footer .tip{font-size:13px;opacity:.85;margin-top:6px;}
 
 <footer>
   <h3>扫码 / 复制链接，把我的简历分享给更多人</h3>
-  <div id="qrWrap"></div>
+  <div id="qrWrap"><img src="assets/qr.png" alt="访问二维码" width="150" height="150"></div>
   <p class="url" id="pageUrl"></p>
   <p class="tip">手机扫描二维码即可访问本页面</p>
   <button class="copy-btn" id="copyBtn">复制访问链接</button>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script>
+/* ===== 链接 ===== */
+const pageUrl = window.location.href.split('#')[0];
+document.getElementById('pageUrl').textContent = pageUrl;
 /* ===== 头像上传（本地保存，仅本机浏览器生效） ===== */
 const avatarImg = document.getElementById('avatarImg');
 const avatarInput = document.getElementById('avatarInput');
@@ -311,10 +313,6 @@ avatarInput.addEventListener('change', e => {
 /* ===== 二维码与链接 ===== */
 const pageUrl = window.location.href.split('#')[0];
 document.getElementById('pageUrl').textContent = pageUrl;
-if (typeof QRCode !== 'undefined') {
-  QRCode.toCanvas(pageUrl, { width: 150, margin: 1, color: { dark: '#0e7c86', light: '#ffffff' } },
-    (err, canvas) => { if (!err) document.getElementById('qrWrap').appendChild(canvas); });
-}
 document.getElementById('copyBtn').addEventListener('click', function () {
   navigator.clipboard.writeText(pageUrl).then(() => {
     this.textContent = '✅ 已复制';

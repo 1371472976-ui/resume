@@ -233,6 +233,25 @@ a:hover{color:var(--gold-light);}
 .dash-bar-value{font-size:11px;font-weight:700;color:var(--navy);}
 
 
+/* ===== 联系弹窗 ===== */
+.modal-mask{position:fixed;inset:0;background:rgba(26,43,74,.55);display:none;align-items:center;justify-content:center;z-index:400;padding:20px;}
+.modal-mask.show{display:flex;}
+.modal-box{background:#fff;border-radius:16px;padding:28px 26px 22px;width:100%;max-width:400px;box-shadow:0 24px 60px rgba(0,0,0,.35);animation:modalIn .24s ease-out;}
+@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(.98);}to{opacity:1;transform:none;}}
+.modal-title{font-family:"Songti SC",Georgia,serif;font-size:20px;font-weight:900;color:var(--navy);text-align:center;}
+.modal-sub{font-size:13px;color:var(--text-muted);text-align:center;margin:6px 0 20px;}
+.modal-action{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--border-light);border-radius:12px;
+  margin-bottom:12px;background:#fffdfb;transition:all .2s;}
+.modal-action:hover{border-color:var(--gold);background:#fffaf0;transform:translateY(-2px);}
+.ma-icon{font-size:20px;line-height:1;}
+.ma-body{display:flex;flex-direction:column;flex:1;min-width:0;}
+.ma-label{font-size:12px;color:var(--text-muted);}
+.ma-value{font-size:15px;font-weight:700;color:var(--navy);word-break:break-all;}
+.ma-go{font-size:12px;color:var(--gold);font-weight:600;white-space:nowrap;}
+.modal-close{width:100%;margin-top:6px;padding:11px;border:1px solid var(--border);border-radius:10px;background:#fff;
+  color:var(--text-secondary);font-size:14px;cursor:pointer;transition:all .2s;font-family:inherit;}
+.modal-close:hover{border-color:var(--navy);color:var(--navy);}
+
 /* ===== 联系方式 ===== */
 .contact-section{background:var(--navy);color:#fff;padding:64px 0;}
 .contact-section .section-title{color:#fff;}
@@ -320,6 +339,7 @@ a:hover{color:var(--gold-light);}
   }
   .chart-container,.portfolio-chart{height:240px;}
   .dash-item{break-inside:avoid;page-break-inside:avoid;}
+  .modal-mask{display:none !important;}
   .contact-section{padding:30px 0 !important;}
 }
 </style>
@@ -364,7 +384,6 @@ a:hover{color:var(--gold-light);}
           <div class="hero-title">供应链主管 · 全链路供应链运营 · 库存优化与降本增效</div>
           <p class="hero-desc">10年供应链管理与计划双线经验，擅长进口品牌/OEM全链路供应链统筹，精通第三方仓配监管、SKU级动态补货模型搭建与关务合规风控，多环节实现10%以上降本，具备从0到1的WMS/ERP系统落地经验。</p>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="mailto:1371472976@qq.com">联系我</a>
             <button class="btn btn-ghost" onclick="window.print()">打印 / 导出PDF</button>
           </div>
         </div>
@@ -872,10 +891,29 @@ a:hover{color:var(--gold-light);}
       </div>
       <div class="contact-cta reveal">
         <div class="contact-cta-text">期待与您交流供应链管理的更多可能</div>
-        <a class="btn-primary" href="mailto:1371472976@qq.com?subject=%E5%90%88%E4%BD%9C%E9%82%80%E8%AF%B7">发送合作邀请</a>
+        <button class="btn-primary" onclick="openContactModal()">发送合作邀请</button>
       </div>
     </div>
   </section>
+
+  <!-- ===== 联系弹窗 ===== -->
+  <div class="modal-mask" id="contactModal" onclick="if(event.target===this)closeContactModal()">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-label="联系方式">
+      <div class="modal-title">联系方式</div>
+      <div class="modal-sub">期待与您交流供应链管理的更多可能</div>
+      <a class="modal-action" href="tel:+8613531735582">
+        <span class="ma-icon">📱</span>
+        <span class="ma-body"><span class="ma-label">拨打电话</span><span class="ma-value">135-3173-5582</span></span>
+        <span class="ma-go">拨打 ›</span>
+      </a>
+      <a class="modal-action" href="mailto:1371472976@qq.com?subject=%E5%90%88%E4%BD%9C%E9%82%80%E8%AF%B7">
+        <span class="ma-icon">✉️</span>
+        <span class="ma-body"><span class="ma-label">发送邮件</span><span class="ma-value">1371472976@qq.com</span></span>
+        <span class="ma-go">写邮件 ›</span>
+      </a>
+      <button class="modal-close" onclick="closeContactModal()">关闭</button>
+    </div>
+  </div>
 
   <!-- ===== 页脚 / 二维码 ===== -->
   <footer class="footer">
@@ -962,6 +1000,20 @@ const skillObserver = new IntersectionObserver(entries => {
   });
 }, {threshold:.2});
 document.querySelectorAll('.skill-category,.skill-dim').forEach(el => skillObserver.observe(el));
+
+/* ===== 联系弹窗 ===== */
+const contactModal = document.getElementById('contactModal');
+function openContactModal(){
+  contactModal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeContactModal(){
+  contactModal.classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && contactModal.classList.contains('show')) closeContactModal();
+});
 
 /* ===== 二维码与链接 ===== */
 const pageUrl = window.location.href.split('#')[0];

@@ -143,7 +143,14 @@ footer .tip{font-size:13px;opacity:.85;margin-top:6px;}
 }
 @media print{
   footer,.hero-actions,#avatarInput{display:none;}
+  .avatar-box,.avatar-tip{display:none !important;} /* 导出PDF不显示头像 */
   body{background:#fff;}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .hero{padding:26px 0 60px;}
+  .contact-bar,.card,.skill,.job,.edu{break-inside:avoid;page-break-inside:avoid;} /* 卡片不跨页割裂 */
+  .sec-head{break-after:avoid;page-break-after:avoid;} /* 标题不与内容分离 */
+  section{padding:18px 0 4px;}
+  .timeline{padding-left:26px;}
 }
 </style>
 </head>
